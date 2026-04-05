@@ -39,7 +39,7 @@ def set_bg(image_file):
 
     st.markdown(page_bg, unsafe_allow_html=True)
 
-# 👉 Call function
+
 set_bg("MRS.jpg")
 
 if 'watchlist' not in st.session_state:
@@ -55,9 +55,7 @@ def fetch_poster(movie_id):
     return full_path
 
 
-# ===========================
-# 🎥 TRAILER FUNCTION
-# ===========================
+
 def fetch_trailer(movie_id):
     try:
         url = f"https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=8265bd1679663a7ea12ac168da84d2e8"
@@ -71,9 +69,7 @@ def fetch_trailer(movie_id):
 
     return None
 
-# ===========================
-# ✅ FIX: ADD THIS FUNCTION
-# ===========================
+
 def fetch_details(movie_id):
     try:
         url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
@@ -155,9 +151,7 @@ if st.button('Recommend'):
 
 
 
-# ===========================
-# 🚀 ADVANCED FEATURES
-# ===========================
+
 
 def fetch_details(movie_id):
     try:
@@ -184,12 +178,7 @@ def fetch_trailer(movie_id):
         pass
     return None
 
-# ---------------------------
-# WATCHLIST
 
-# ---------------------------
-# DISPLAY
-# ---------------------------
 if st.button('🚀 Recommend Movies with Trailers and ratings'):
     names, posters = recommend(selected_movie_name)
 
@@ -207,15 +196,15 @@ if 'names' in st.session_state:
 
         st.markdown(f"## 🎬 {movie_name}")
 
-        # 🔥 Create 3 columns
+       
         col1, col2 = st.columns([1, 2])
 
-        # 🖼 Poster column
+       
         with col1:
             if poster:
                 st.image(poster)
 
-        # 🎥 Trailer + details column
+       
         with col2:
             st.markdown(f"⭐ Rating: {rating}")
             st.markdown(f"📝 {overview}")
